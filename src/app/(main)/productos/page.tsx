@@ -87,7 +87,7 @@ export default function Productos() {
                         ? Array(10).fill(0).map((_, index) => <ProductCardSkeleton key={index} />)
                         :
                         data?.map((producto) => (
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-950">
+                            <div key={producto.id} className="bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-950">
                                 <Image
                                     src={producto.imagen || "/placeholder.svg"}
                                     alt="Product 1"

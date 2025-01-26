@@ -24,6 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Axios } from "@/core/axios"
 import { useToast } from "@/hooks/use-toast"
+import { useSWRConfig } from "swr"
 
 
 const formSchema = z.object({
@@ -50,6 +51,7 @@ const formSchema = z.object({
     }),
 })
 export default function Cliente() {
+    
     const { toast } = useToast()
 
     const { type, data } = useDataStore();
@@ -57,6 +59,7 @@ export default function Cliente() {
         resolver: zodResolver(formSchema),
 
     })
+    const { mutate } = useSWRConfig()
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         if (type == 'update') {
@@ -68,6 +71,7 @@ export default function Cliente() {
                         description: "Se ha actualizado el cliente",
                         variant: "default"
                     })
+                    //mutate('/https://apiexpress.fichafamiliarchambo.site/clientes')
                 })
                 .catch((e) => {
                     toast({

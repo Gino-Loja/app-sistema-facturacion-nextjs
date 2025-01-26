@@ -54,11 +54,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             Clientes
                         </Link>
                         <Link
-                            href="#"
-                            className={`transition-colors hover:text-foreground ${isActive('#') ? 'text-foreground font-bold' : 'text-muted-foreground'
+                            href="/facturas"
+                            className={`transition-colors hover:text-foreground ${isActive('/facturas') ? 'text-foreground font-bold' : 'text-muted-foreground'
                                 }`}
                         >
-                            Analytics
+                            Facturar
                         </Link>
                     </nav>
                     <Sheet>
@@ -103,11 +103,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     Clientes
                                 </Link>
                                 <Link
-                                    href="#"
-                                    className={`hover:text-foreground ${isActive('#') ? 'text-foreground font-bold' : 'text-muted-foreground'
-                                        }`}
+                                    href="/facturas"
+                                    className={`hover:text-foreground ${isActive('/facturas') ? 'text-foreground font-bold' : 'text-muted-foreground' }`}
                                 >
-                                    Analytics
+                                    Facturar
                                 </Link>
                             </nav>
                         </SheetContent>

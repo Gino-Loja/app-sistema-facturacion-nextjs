@@ -1,3 +1,4 @@
+'use client'
 import {
   Activity,
   ArrowUpRight,
@@ -34,12 +35,6 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-export const description =
-  "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image."
-
-export const iframeHeight = "825px"
-
-export const containerClassName = "w-full h-full"
 
 export default function Dashboard() {
   return (
@@ -101,7 +96,6 @@ export default function Dashboard() {
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
           <Card
             className="xl:col-span-2"
-            x-chunk="A card showing a table of recent transactions with a link to view all transactions."
           >
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">

@@ -8,8 +8,6 @@ export default function RootLayout({
         <div className="mx-auto p-4">
             {children}
         </div>
-
-
     )
 
 
