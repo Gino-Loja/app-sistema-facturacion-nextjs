@@ -141,7 +141,6 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
 
         try {
 
-            console.log(body)
 
             const response = await fetch(`http://localhost:8000/invoice/sign?usuario_id=${user.id}`, {
                 method: 'POST',
@@ -396,7 +395,6 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
         }
         return invoice;
     };
-    { console.log(dateInvoice) }
 
 
     return (

@@ -1,4 +1,6 @@
 
+
+
 export type Details = {
     // {
     //     "productCode": "003",

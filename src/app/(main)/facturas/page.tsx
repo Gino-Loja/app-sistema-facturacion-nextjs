@@ -15,7 +15,6 @@ export  default async function Facturas() {
     }
 
     const clientes = await getListAllUserByName('');
-    console.log(informationCompany)
 
 
 

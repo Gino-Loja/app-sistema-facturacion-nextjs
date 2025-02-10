@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                         <Link href="#" className="flex items-center gap-2 text-lg font-semibold md:text-base">
                             <Package2 className="h-6 w-6" />
-                            <span className="sr-only">Acme Inc</span>
+                            <span className="sr-only">EL propio</span>
                         </Link>
                         <Link
                             href="/"
@@ -59,6 +59,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 }`}
                         >
                             Facturar
+                        </Link>
+                        <Link
+                            href="/ver-facturas"
+                            className={`transition-colors hover:text-foreground ${isActive('/ver-facturas') ? 'text-foreground font-bold' : 'text-muted-foreground'
+                                }`}
+                        >
+                            Ver Facturas
                         </Link>
                     </nav>
                     <Sheet>

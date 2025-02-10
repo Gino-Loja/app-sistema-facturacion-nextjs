@@ -5,10 +5,19 @@ export interface Cliente {
     apellido: string;          // text
     cedula: string;            // text
     nro_tel_princ: string;     // text
-    email: string;            // text 
-    ruc: string | null;              // text 
+    email: string;            // text
+    ruc: string | null;              // text
     direccion: string;        // text
-} 
+}
+
+export interface Factura {
+    id: number;
+    numero: string;
+    codigo: string;
+    fecha: string;
+    hora: string;
+    importe_total: number;
+}
 
 
 export interface Producto {
