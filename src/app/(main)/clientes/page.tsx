@@ -12,7 +12,7 @@ export default function Clientes() {
 
     const fetcher = (url:string) => fetch(url).then((res) => res.json());
 
-    const { data:clientes,  error, mutate } = useSWR('http://localhost:3030/clientes', fetcher);
+    const { data:clientes,  error, mutate } = useSWR('https://gary-api-node.jaapmariscalsucre.site/clientes', fetcher);
 
     if (!clientes) {
         return (

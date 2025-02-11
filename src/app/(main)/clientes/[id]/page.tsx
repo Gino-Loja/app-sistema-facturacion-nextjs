@@ -72,6 +72,8 @@ export default function Cliente() {
                         variant: "default"
                     })
                     //mutate('/https://apiexpress.fichafamiliarchambo.site/clientes')
+                    mutate('https://gary-api-node.jaapmariscalsucre.site/clientes')
+
                 })
                 .catch((e) => {
                     toast({
