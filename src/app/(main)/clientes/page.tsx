@@ -12,7 +12,15 @@ export default function Clientes() {
 
     const fetcher = (url:string) => fetch(url).then((res) => res.json());
 
-    const { data:clientes,  error, mutate } = useSWR('https://gary-api-node.jaapmariscalsucre.site/clientes', fetcher);
+    const { data:clientes,  isLoading, mutate } = useSWR('https://gary-api-node.jaapmariscalsucre.site/clientes', fetcher);
+
+    if (isLoading) {
+        return (
+            <div className="grid grid-cols-3 gap-3 space-y-4 p-4">
+                
+            </div>
+        )
+    }
 
     if (!clientes) {
         return (

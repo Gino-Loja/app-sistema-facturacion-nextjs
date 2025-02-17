@@ -10,7 +10,7 @@ interface InvoiceDetailProps {
 }
 
 export const InvoiceDetail = ({ invoice }: InvoiceDetailProps) => {
-  const { factura_json } = invoice;
+  const { factura_json, clave_acceso, fecha_emision } = invoice;
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
@@ -23,6 +23,8 @@ export const InvoiceDetail = ({ invoice }: InvoiceDetailProps) => {
               <p>RUC: {factura_json.documentInfo.rucBusiness}</p>
               <p>Dirección: {factura_json.documentInfo.businessAddress}</p>
               <p>Establecimiento: {factura_json.documentInfo.establishment}</p>
+              <p>Clave de acceso: {clave_acceso}</p>
+
             </div>
           </div>
           <div className="text-right space-y-2">
@@ -30,7 +32,7 @@ export const InvoiceDetail = ({ invoice }: InvoiceDetailProps) => {
             <p className="text-xl font-medium">{factura_json.documentInfo.sequential}</p>
             <p className="text-sm text-gray-600">Fecha de emisión</p>
             <p className="font-medium">
-              {format(invoice.fecha_emision, "dd/MM/yyyy")}
+              {format(fecha_emision, "dd/MM/yyyy")}
             </p>
           </div>
         </div>
@@ -52,6 +54,7 @@ export const InvoiceDetail = ({ invoice }: InvoiceDetailProps) => {
             <p className="text-gray-600">Dirección:</p>
             <p className="font-medium">{factura_json.customer.customerAddress}</p>
           </div>
+          
         </div>
       </Card>
 

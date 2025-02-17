@@ -20,6 +20,7 @@ type Servicio = {
 export async function getServicesAll(): Promise<QueryResultError<Servicio[]>> {
     try {
         const user: Servicio[] = (await pool.query('SELECT * FROM productos_fac')).rows;
+        revalidatePath('/facturas');
 
         return { success: true, data: user };
 
@@ -31,6 +32,8 @@ export async function getServicesAll(): Promise<QueryResultError<Servicio[]>> {
 export async function getInformationCompany(): Promise<QueryResultError<InformationCompany[]>> {
     try {
         const user: InformationCompany[] = (await pool.query('SELECT * FROM empresa_informacion')).rows;
+        revalidatePath('/facturas');
+
         return { success: true, data: user };
     } catch (error) {
         return { success: false, error: `Error al obtener todos los usuarios: ${error}` };
@@ -45,6 +48,7 @@ export const getNumberInvoice = async (): Promise<QueryResultError<number>> => {
             FROM public.facturas_detalles;
 
         `)).rows[0].secuencial;
+        revalidatePath('/facturas');
         return { success: true, data: secuencial };
     } catch (error) {
         return { success: false, error: `Error al obtener los datos: ${error}` };
@@ -65,6 +69,8 @@ export const getPaymentMethods = async (): Promise<QueryResultError<PaymentMetho
             from
                 metodos_pagos
         `)).rows;
+        revalidatePath('/facturas');
+
         return { success: true, data: paymentMethods };
     } catch (error) {
         return { success: false, error: `Error al obtener los datos: ${error}` };

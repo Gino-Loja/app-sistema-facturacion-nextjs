@@ -18,14 +18,22 @@ export default function Productos() {
 
     const router = useRouter();
     const { setData, setType } = useDataStore();
+
     const getfetcher = async (url: string): Promise<Producto[]> => {
         const response: AxiosResponse<Producto[]> = await Axios.get(url);
         return response.data;
     };
 
-
     const { data, error, isLoading } = useSWR<Producto[]>('/productos/', getfetcher);
 
+    if (isLoading) {
+        return (
+            <div className="grid grid-cols-3 gap-3 space-y-4 p-4">
+                                   { Array(10).fill(0).map((_, index) => <ProductCardSkeleton key={index} />)}
+
+                    </div>
+        )
+    }
 
 
     if (!data) {
@@ -68,7 +76,7 @@ export default function Productos() {
 
 
             <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 md:px-6 py-12">
-                {isLoading && <div className="flex flex-1 items-center justify-center">
+                {/* {isLoading && <div className="flex flex-1 items-center justify-center">
                     <div className="flex flex-col items-center gap-1 space-y-4">
                         <h3 className="text-2xl font-bold tracking-tight">
                             Cargando productos
@@ -81,40 +89,39 @@ export default function Productos() {
                             <NuevoProducto />
                         </div>
                     </div>
-                </div>}
+                </div>} */}
                 {
-                    isLoading
-                        ? Array(10).fill(0).map((_, index) => <ProductCardSkeleton key={index} />)
-                        :
-                        data?.map((producto) => (
-                            <div key={producto.id} className="bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-950">
-                                <Image
-                                    src={producto.imagen || "/placeholder.svg"}
-                                    alt="Product 1"
-                                    width={600}
-                                    height={400}
-                                    className="w-full h-60 object-cover"
-                                    style={{ aspectRatio: "600/400", objectFit: "cover" }}
-                                />
-                                <div className="p-6 space-y-4">
-                                    <h3 className="text-xl font-bold">{producto.nombre}</h3>
-                                    <p className="text-gray-500 dark:text-gray-400">{producto.descripcion}</p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-2xl font-bold">${producto.precio_unidad}</span>
-                                        <span className="text-gray-500 dark:text-gray-400">Stock: {producto.stock}</span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span
-                                            className="text-gray-500 dark:text-gray-400">Categoria: {producto.categoria}</span>
-                                        <Button onClick={() => {
-                                            setData(producto)
-                                            setType('update')
-                                            router.push(`/productos/${producto.id}`)
-                                        }} size="sm">Editar</Button>
-                                    </div>
+
+
+                    data?.map((producto) => (
+                        <div key={producto.id} className="bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-950">
+                            <Image
+                                src={producto.imagen || "/placeholder.svg"}
+                                alt="Product 1"
+                                width={600}
+                                height={400}
+                                className="w-full h-60 object-cover"
+                                style={{ aspectRatio: "600/400", objectFit: "cover" }}
+                            />
+                            <div className="p-6 space-y-4">
+                                <h3 className="text-xl font-bold">{producto.nombre}</h3>
+                                <p className="text-gray-500 dark:text-gray-400">{producto.descripcion}</p>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-2xl font-bold">${producto.precio_unidad}</span>
+                                    <span className="text-gray-500 dark:text-gray-400">Stock: {producto.stock}</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span
+                                        className="text-gray-500 dark:text-gray-400">Categoria: {producto.categoria}</span>
+                                    <Button onClick={() => {
+                                        setData(producto)
+                                        setType('update')
+                                        router.push(`/productos/${producto.id}`)
+                                    }} size="sm">Editar</Button>
                                 </div>
                             </div>
-                        ))}
+                        </div>
+                    ))}
             </section>
         </div>
 
