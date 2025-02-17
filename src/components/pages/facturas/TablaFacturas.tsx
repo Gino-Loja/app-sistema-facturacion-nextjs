@@ -67,7 +67,7 @@ const columns: ColumnDef<Invoice>[] = [
     header: "Fecha",
     cell: ({ row }) => {
       const fecha = new Date(row.getValue("fecha_emision"));
-      return fecha.toLocaleDateString();
+      return fecha.toLocaleDateString("es-EC", { timeZone: "America/Guayaquil" });
     },
   },
   {

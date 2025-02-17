@@ -6,6 +6,7 @@ export const authConfig = {
   pages: {
     signIn: '/auth',
   },
+  
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       // Check if the user is authenticated
