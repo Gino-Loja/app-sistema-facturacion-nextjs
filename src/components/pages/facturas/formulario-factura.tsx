@@ -142,7 +142,7 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
         try {
 
 
-            const response = await fetch(`https://gary-api-node.jaapmariscalsucre.site/invoice/sign?usuario_id=${user.id}`, {
+            const response = await fetch(`https://gary-api-facturacion.jaapmariscalsucre.site/invoice/sign?usuario_id=${user.id}`, {
                 method: 'POST',
                 headers: {
                     'accept': 'application/json',
