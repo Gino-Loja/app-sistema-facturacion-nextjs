@@ -431,8 +431,8 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
                                                     )}
                                                 >
                                                     <CalendarIcon className="mr-2 h-4 w-4" />
-                                                    {dateInvoice ? format(dateInvoice, "YYYY-MM-DD") : <span>Seleccione una fecha</span>}
-                                                </Button>
+                                                    {dateInvoice ? format(dateInvoice, "PPP", { locale: es }) : <span>Seleccione una fecha</span>}
+                                                    </Button>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
                                                 <Calendar
