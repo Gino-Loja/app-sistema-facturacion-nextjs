@@ -142,7 +142,7 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
         try {
 
 
-            const response = await fetch(`http://localhost:8000/invoice/sign?usuario_id=${user.id}`, {
+            const response = await fetch(`https://gary-api-node.jaapmariscalsucre.site/invoice/sign?usuario_id=${user.id}`, {
                 method: 'POST',
                 headers: {
                     'accept': 'application/json',
@@ -431,7 +431,7 @@ export default function FormularioFacturay({ informationCompany, paymentMethods,
                                                     )}
                                                 >
                                                     <CalendarIcon className="mr-2 h-4 w-4" />
-                                                    {dateInvoice ? format(dateInvoice, "PPP") : <span>Seleccione una fecha</span>}
+                                                    {dateInvoice ? format(dateInvoice, "YYYY-MM-DD") : <span>Seleccione una fecha</span>}
                                                 </Button>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
