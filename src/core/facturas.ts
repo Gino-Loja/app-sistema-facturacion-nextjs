@@ -14,7 +14,7 @@ export const fetchFacturas = async () => {
     return rows;
 
   } catch (error) {
-    console.error('Error fetching facturas:', error);
     throw new Error('Error al obtener las facturas');
   }
 };
+

@@ -88,13 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 >
                                     Dashboard
                                 </Link>
-                                <Link
-                                    href="#"
-                                    className={`hover:text-foreground ${isActive('#') ? 'text-foreground font-bold' : 'text-muted-foreground'
-                                        }`}
-                                >
-                                    Orders
-                                </Link>
+                              
                                 <Link
                                     href="#"
                                     className={`hover:text-foreground ${isActive('#') ? 'text-foreground font-bold' : 'text-muted-foreground'
